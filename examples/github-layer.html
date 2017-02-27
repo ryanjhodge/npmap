@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width,initial-scale=1.0,maximum-scale=1.0,user-scalable=no">
+    <title>GitHub Layer | Examples | NPMap.js</title>
+    <link href="https://www.nps.gov/lib/bootstrap/3.3.2/css/nps-bootstrap.min.css" rel="stylesheet">
+    <style>body {
+  margin: 0;
+  padding: 0;
+}
+#map {
+  bottom: 0;
+  position: absolute;
+  top: 0;
+  width: 100%;
+}
+</style>
+  </head>
+  <body>
+    <div id="map"></div>
+
+    <script>var NPMap = {
+  center: {
+    lat: 37.82551432799189,
+    lng: -119.57931518554688
+  },
+  div: 'map',
+  overlays: [{
+    attribution: 'Land Resources Division',
+    branch: 'gh-pages',
+    path: 'base_data/boundaries/parks/yose.topojson',
+    popup: {
+      title: 'Yosemite National Park'
+    },
+    repo: 'data',
+    style: 'parks',
+    type: 'github',
+    user: 'nationalparkservice'
+  }],
+  zoom: 10
+};
+
+(function () {
+  var s = document.createElement('script');
+  s.src = '../npmap-bootstrap.js';
+  document.body.appendChild(s);
+})();
+</script>
+  </body>
+</html>

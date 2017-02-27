@@ -1,0 +1,94 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width,initial-scale=1.0,maximum-scale=1.0,user-scalable=no">
+    <title>Events | Examples | NPMap.js</title>
+    <link href="https://www.nps.gov/lib/bootstrap/3.3.2/css/nps-bootstrap.min.css" rel="stylesheet">
+    <style>body {
+  margin: 0;
+  padding: 0;
+}
+#map {
+  bottom: 0;
+  position: absolute;
+  top: 0;
+  width: 100%;
+}
+#events {
+  background-color: #fff;
+  height: 200px;
+  left: 50%;
+  margin-left: -150px;
+  overflow: auto;
+  padding: 15px;
+  position: absolute;
+  top: 10px;
+  width: 300px;
+  z-index: 1;
+}
+</style>
+  </head>
+  <body>
+    <div id="map"></div>
+<div id="events"></div>
+
+    <script>var el = document.getElementById('events');
+var NPMap;
+
+function addMessage (message) {
+  el.innerHTML += message + '<br>';
+  el.scrollTop = el.scrollHeight;
+}
+
+NPMap = {
+  div: 'map',
+  events: [{
+    fn: function () {
+      addMessage('movend');
+    },
+    type: 'moveend'
+  }],
+  maxZoom: 13,
+  overlays: [{
+    attribution: 'NPMap Team',
+    events: [{
+      fn: function (error) {
+        addMessage(error.message);
+      },
+      type: 'error'
+    }, {
+      fn: function () {
+        addMessage('ready');
+      },
+      type: 'ready'
+    }, {
+      fn: function () {
+        addMessage('tileloadstart');
+      },
+      type: 'tileloadstart'
+    }],
+    name: 'Parks',
+    popup: {
+      description: {
+        format: 'table'
+      },
+      title: '{{alphacode}}'
+    },
+    styles: {
+      'fill': '#7c117c'
+    },
+    table: 'parks',
+    type: 'cartodb',
+    user: 'nps'
+  }]
+};
+
+(function () {
+  var s = document.createElement('script');
+  s.src = '../npmap-bootstrap.js';
+  document.body.appendChild(s);
+})();
+</script>
+  </body>
+</html>

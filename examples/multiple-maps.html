@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width,initial-scale=1.0,maximum-scale=1.0,user-scalable=no">
+    <title>Multiple Maps | Examples | NPMap.js</title>
+    <link href="https://www.nps.gov/lib/bootstrap/3.3.2/css/nps-bootstrap.min.css" rel="stylesheet">
+    <style>body {
+  margin: 0;
+  padding: 0;
+}
+#map {
+  bottom: 0;
+  position: absolute;
+  top: 0;
+  width: 100%;
+}
+#map-1,
+#map-2 {
+  height: 300px;
+  position: relative;
+}
+#map-2 {
+  margin-top: 5px;
+}
+</style>
+  </head>
+  <body>
+    <div id="map-1"></div>
+<div id="map-2"></div>
+
+    <script>var NPMap = [{
+  div: 'map-1',
+  scrollWheelZoom: false
+}, {
+  div: 'map-2',
+  scrollWheelZoom: false
+}];
+
+(function () {
+  var s = document.createElement('script');
+  s.src = '../npmap-bootstrap.js';
+  document.body.appendChild(s);
+})();
+</script>
+  </body>
+</html>
