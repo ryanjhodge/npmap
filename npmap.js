@@ -1,6 +1,6 @@
 /**
  * NPMap.js 4.0.0
- * Built on 02/26/2017 at 10:03AM PST
+ * Built on 03/05/2017 at 05:56AM PST
  * Copyright 2017 National Park Service
  * Licensed under MIT (https://github.com/nationalparkservice/npmap.js/blob/master/LICENSE.md)
  */
@@ -27158,7 +27158,7 @@ module.exports=[
 
 var version = require('./package.json').version;
 
-window.L.Icon.Default.imagePath = 'https://www.nps.gov/lib/npmap.js/' + version + '/images';
+window.L.Icon.Default.imagePath = 'https://cdn.rawgit.com/ryanjhodge/npmap/10d6adc0/images';
 L.npmap = module.exports = {
   VERSION: version,
   // Preserve order of controls because it affects the display hierarchy.
